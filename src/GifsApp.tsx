@@ -1,50 +1,35 @@
+import { CustomHeader } from "./shared/components/CustomHeader";
+import { SearchBar } from "./shared/components/SearchBar";
+import { PreviousSearches } from "./gifs/components/PreviousSearches";
+
+
+
+
 export const GifsApp = () => {
   return (
     <>
       {/* Header */}
+      <CustomHeader
+        title="Gifs App"
+        description="Discover amazing gifs!"
+      />
 
-      <div className="content-center">
-        <h1>Gifs App</h1>
-        <p>Discover amazing gifs!</p>
-      </div>
 
       {/* Search */}
-      <div className="search-container">
-        <input type="text" placeholder="Search gifs..." />
-        <button>Search</button>
-      </div>
+      <SearchBar
+        placeholder="placeholder"
+        onSearch={(query) => {
+          console.log("Searching for:", query);
+        }
+        
+        }
+      />
 
       {/* Busquedas previas */}
-      <div className="previous-searches">
-        <h2>Previous Searches</h2>
-        <ul className="previous-searches-list">
-          <li>funny</li>
-          <li>cats</li>
-          <li>dance</li>
-        </ul>
-      </div>
+      <PreviousSearches previousSearches={["cats", "dogs", "funny"]} />
 
       {/* Gifs */}
-      <div className="gifs-container">
-        <div className="gif-card">
-          <img
-            src="https://media.giphy.com/media/3o7TKsQ5a18900624M/giphy.gif"
-            alt="Gif 1"
-          />
-        </div>
-        <div className="gif-card">
-          <img
-            src="https://media.giphy.com/media/3o7TKsQ5a18900624M/giphy.gif"
-            alt="Gif 2"
-          />
-        </div>
-        <div className="gif-card">
-          <img
-            src="https://media.giphy.com/media/3o7TKsQ5a18900624M/giphy.gif"
-            alt="Gif 3"
-          />
-        </div>
-      </div>
+      
     </>
   );
 };
